@@ -1,0 +1,42 @@
+package com.practice.examplesolving;
+
+public class MultiThreadingChildWaitingCase {
+	
+	public static void main(String[] args) throws InterruptedException
+	{
+		MyThread1 t=new MyThread1();
+		//instantiating static variable to current thread 
+	   t.threaddemo=Thread.currentThread();
+	   //instantiating and registering thread with thread pool task scheduler
+	   t.start();
+	   for(int i=0;i<10;i++)
+		{
+			System.out.println("Rama Thread");
+			Thread.sleep(1000);
+		}
+	
+	}
+
+}
+
+class MyThread1 extends Thread
+{
+	static Thread threaddemo;
+	public void run()
+	{   
+		try {
+			//waiting till my main thread method got executed
+			threaddemo.join(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//once main thread is done seeta thread continues
+		for(int i=0;i<10;i++)
+		{
+			System.out.println("Seeta Thread");
+		}
+	}
+	
+}
