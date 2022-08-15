@@ -1,4 +1,4 @@
-package com.practice.examplesolving;
+package com.practice.example-solving;
 
 public class MainThreadWaitingTillMainThreadGotCompletedCase {
 

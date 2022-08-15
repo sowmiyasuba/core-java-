@@ -1,4 +1,4 @@
-package com.practice.examplesolving.multithreading;
+package synchronization;
 
 public class SynchronizedDemoforDifferentObjects {
 
